@@ -1,0 +1,17 @@
+<!-- no_teen_sum.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Teen Sum Challenge</title>
+</head>
+<body>
+    <h2>No Teen Sum Challenge</h2>
+    <form method="post" action="{% url 'no_teen_sum' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

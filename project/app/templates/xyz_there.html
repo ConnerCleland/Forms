@@ -1,0 +1,17 @@
+<!-- xyz_there.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ There Challenge</title>
+</head>
+<body>
+    <h2>XYZ There Challenge</h2>
+    <form method="post" action="{% url 'xyz_there' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

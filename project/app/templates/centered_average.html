@@ -1,0 +1,17 @@
+<!-- centered_average.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Average Challenge</title>
+</head>
+<body>
+    <h2>Centered Average Challenge</h2>
+    <form method="post" action="{% url 'centered_average' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
