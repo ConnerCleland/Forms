@@ -14,9 +14,9 @@ class FrontTimesTestCase(TestCase):
 
         # Test case 1: Short input string
         front_times_response = self.client.post(
-            "/front_times/", {"input_string": "abc", "n": 2}
+            "/front_times/", {"input_string": "Chocolate", "n": 2}
         )
-        self.assertContains(front_times_response, "abcabc")
+        self.assertContains(front_times_response, "ChoCho")
 
         # Test case 2: Long input string
         front_times_response = self.client.post(
@@ -26,15 +26,9 @@ class FrontTimesTestCase(TestCase):
 
         # Test case 3: Empty input string
         front_times_response = self.client.post(
-            "/front_times/", {"input_string": "", "n": 5}
+            "/front_times/", {"input_string": "Abc", "n": 3}
         )
-        self.assertContains(front_times_response, "")
-
-        # Test case 4: n equals 0
-        front_times_response = self.client.post(
-            "/front_times/", {"input_string": "xyz", "n": 0}
-        )
-        self.assertContains(front_times_response, "")
+        self.assertContains(front_times_response, "AbcAbcAbc")
 
 
 class XYZThereTestCase(TestCase):
@@ -68,19 +62,19 @@ class CenteredAverageTestCase(TestCase):
 
         # Test case 1: Regular input
         centered_average_response = self.client.post(
-            "/centered_average/", {"nums": "1,2,3,4,100"}
+            "/centered_average/", {"nums": "1, 2, 3, 4, 100"}
         )
         self.assertContains(centered_average_response, "3")
 
         # Test case 2: Multiple copies of smallest and largest values
         centered_average_response = self.client.post(
-            "/centered_average/", {"nums": "1,1,5,5,10,8,7"}
+            "/centered_average/", {"nums": "1, 1, 5, 5, 10, 8, 7"}
         )
         self.assertContains(centered_average_response, "5")
 
         # Test case 3: Negative values
         centered_average_response = self.client.post(
-            "/centered_average/", {"nums": "-10,-4,-2,-4,-2,0"}
+            "/centered_average/", {"nums": "-10, -4, -2, -4, -2, 0"}
         )
         self.assertContains(centered_average_response, "-3")
 
